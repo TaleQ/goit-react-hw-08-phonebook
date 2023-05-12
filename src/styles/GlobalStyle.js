@@ -1,18 +1,26 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+}
   body {
-    background-color: #acc2e6;
-    font-family: 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
-    color:  #06347d;
     margin: 0;
+    font-family: 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #acc2e6;
+    color:  #06347d;
   }
   img {
     display: block;
     max-width: 100%;
+    height: auto;
   }
   ul {
+    margin: 0;
     padding-left: 0;
     list-style: none;
   }
@@ -30,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid #2160c4;
     border-radius: 4px;
     color: inherit
+  }
+  a {
+    color:inherit;
+    text-decoration: none;
+    cursor: pointer;
   }
 `;
 
