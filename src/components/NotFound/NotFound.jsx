@@ -1,4 +1,4 @@
-import { NotFoundImg, NotFoundText } from './NotFound.styled';
+import { NotFoundText } from './NotFound.styled';
 // import notFoundImg from '../../img/not_found.jpeg';
 
 export const NotFound = () => {
