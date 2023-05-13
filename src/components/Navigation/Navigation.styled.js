@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const NavBox = styled.nav`
+  margin-left: auto;
+`;
+
 export const NavList = styled.ul`
   width: 100%;
   display: flex;

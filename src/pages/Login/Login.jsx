@@ -88,7 +88,11 @@ const Login = () => {
             <Typography component="h1" variant="h5">
               Log in
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              sx={{ width: '100%', mt: 1 }}
+            >
               <TextField
                 type="email"
                 name="email"
@@ -98,7 +102,7 @@ const Login = () => {
                 onChange={handleChange}
                 id="login-email"
                 required
-                sx={{ width: '100%', marginBottom: '10px' }}
+                sx={{ width: '100%', mb: '10px' }}
               />
               <TextField
                 type={showPassword ? 'text' : 'password'}

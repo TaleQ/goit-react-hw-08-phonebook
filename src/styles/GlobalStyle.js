@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale;
-    background-color: #acc2e6;
+    background-color: #acc2e6 !important;
     color:  #06347d;
   }
   img {

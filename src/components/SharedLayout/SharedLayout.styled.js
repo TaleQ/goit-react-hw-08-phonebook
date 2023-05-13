@@ -4,8 +4,7 @@ export const Header = styled.header`
   top: 0;
   left: 0;
   position: sticky;
-  width: 100vw;
-  height: 100px;
+  height: 130px;
   padding: 10px 40px 5px 40px;
   color: #fff;
   text-shadow: 2px 2px 2px #ccdcff;
@@ -18,6 +17,6 @@ export const Header = styled.header`
   gap: 20px;
 `;
 
-export const Container = styled.div`
-  padding: 15px;
-`;
+// export const Container = styled.div`
+//   padding: 15px;
+// `;
