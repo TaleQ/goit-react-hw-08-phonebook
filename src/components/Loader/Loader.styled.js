@@ -9,6 +9,7 @@ export const LoaderOverlay = styled.div`
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 500ms linear, visibility 500ms linear;
+  z-index: 999;
 `;
 
 export const Spinner = styled.div`

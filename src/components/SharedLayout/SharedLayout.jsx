@@ -8,8 +8,8 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Navigation } from 'components/Navigation/Navigation';
 
 export const SharedLayout = () => {
-  const contactsIsLoading = useSelector(contactsSelectors.selectIsLoading);
-  const authIsLoading = useSelector(authSelectors.selectIsLoading);
+  const isLoading = useSelector(contactsSelectors.selectIsLoading);
+  const isRefreshing = useSelector(authSelectors.selectIsRefreshing);
 
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
 
@@ -23,7 +23,7 @@ export const SharedLayout = () => {
       </Header>
       <main>
         <Container>
-          {(contactsIsLoading || authIsLoading) && <Loader />}
+          {(isLoading || isRefreshing) && <Loader />}
           <Outlet />
         </Container>
       </main>

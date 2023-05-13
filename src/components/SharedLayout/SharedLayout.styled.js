@@ -12,7 +12,7 @@ export const Header = styled.header`
   background-color: #141e58;
   font-size: 32px;
   box-shadow: 0px 7px 18px -1px #003399;
-  z-index: 999;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 20px;

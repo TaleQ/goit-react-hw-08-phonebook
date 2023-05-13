@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Normalize } from 'styled-normalize';
 import GlobalStyle from 'styles/GlobalStyle';
-import { App } from 'components/App';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import { store } from 'redux/store';
+import { store, persistor } from 'redux/store';
+import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Normalize />
       <GlobalStyle />
       <Provider store={store}>
-        <App />
+        <PersistGate loading={<Loader />} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
