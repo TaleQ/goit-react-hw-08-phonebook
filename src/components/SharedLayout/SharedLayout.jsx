@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { Header } from './SharedLayout.styled';
+import { Header, Logo } from './SharedLayout.styled';
 import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { contactsSelectors } from 'redux/contacts/selectors';
@@ -16,10 +16,12 @@ export const SharedLayout = () => {
   return (
     <>
       <Header>
-        <NavLink to="/">
-          <h1>Phonebook</h1>
-        </NavLink>
-        {isLoggedIn ? <UserMenu /> : <Navigation />}
+        <div>
+          <NavLink to="/">
+            <Logo>Phonebook</Logo>
+          </NavLink>
+        </div>
+        <div>{isLoggedIn ? <UserMenu /> : <Navigation />}</div>
       </Header>
       <main>
         {(isLoading || isRefreshing) && <Loader />}

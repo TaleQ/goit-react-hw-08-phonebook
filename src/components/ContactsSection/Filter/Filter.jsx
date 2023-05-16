@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { FilterDiv, FilterInput } from './Filter.styled';
+import { FilterInput } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFilter } from 'redux/contacts/filterSlice';
 import { contactsSelectors } from 'redux/contacts/selectors';
@@ -15,7 +15,7 @@ export const Filter = () => {
 
   const filterInputId = nanoid();
   return (
-    <FilterDiv>
+    <>
       <label htmlFor={filterInputId}>Find contacts by name</label>
       <FilterInput
         type="text"
@@ -23,6 +23,6 @@ export const Filter = () => {
         onChange={handleChange}
         value={filterValue}
       ></FilterInput>
-    </FilterDiv>
+    </>
   );
 };

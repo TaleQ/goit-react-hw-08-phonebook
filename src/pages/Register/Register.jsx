@@ -1,6 +1,6 @@
 import { signUp } from 'redux/auth/operations';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,13 +14,26 @@ import Typography from '@mui/material/Typography';
 import { InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import RegisterImg from '../../img/register_bg_img.jpeg';
+import { StyledNavLink } from './Register.styled';
+import { authSelectors } from 'redux/auth/selectors';
+import { Notify } from 'notiflix';
 
 const theme = createTheme();
 
 const Register = () => {
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
+  const error = useSelector(authSelectors.selectError);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      Notify.failure(`Did not manage to sign up. ${error}`, {
+        position: 'center-top',
+      });
+    }
+  }, [error]);
 
   const handleChange = e => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -46,14 +59,14 @@ const Register = () => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: `url(${RegisterImg})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: t =>
               t.palette.mode === 'light'
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundPosition: 'top',
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -61,12 +74,13 @@ const Register = () => {
             sx={{
               my: 8,
               mx: 4,
+              pt: 20,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: '#3A526A' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -143,6 +157,9 @@ const Register = () => {
               >
                 {buttonText.toUpperCase()}
               </Button>
+              <StyledNavLink to="/login">
+                Is already registred? Log In
+              </StyledNavLink>
             </Box>
           </Box>
         </Grid>

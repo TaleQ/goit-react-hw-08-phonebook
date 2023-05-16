@@ -11,6 +11,7 @@ const initialState = {
 
 const handlePending = state => {
   state.isRefreshing = true;
+  state.error = null;
 };
 const handleRejected = (state, action) => {
   state.isRefreshing = false;
@@ -25,7 +26,9 @@ const authSlice = createSlice({
       .addCase(signUp.pending, state => handlePending(state))
       .addCase(logIn.pending, state => handlePending(state))
       .addCase(logOut.pending, state => handlePending(state))
-      .addCase(fetchCurrentUser.pending, state => handlePending(state))
+      .addCase(fetchCurrentUser.pending, state => {
+        state.isRefreshing = true;
+      })
 
       .addCase(signUp.rejected, (state, action) =>
         handleRejected(state, action)
@@ -34,8 +37,8 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state, action) =>
         handleRejected(state, action)
       )
-      .addCase(fetchCurrentUser.rejected, (state, action) => {
-        handleRejected(state, action);
+      .addCase(fetchCurrentUser.rejected, state => {
+        state.isRefreshing = false;
       })
 
       .addCase(signUp.fulfilled, (state, action) => {

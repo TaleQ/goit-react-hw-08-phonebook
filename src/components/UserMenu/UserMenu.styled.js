@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const UserMenuBox = styled.div`
-  margin-left: auto;
+  width: 200px;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 30px;
+  justify-content: flex-end;
+  gap: 10px;
   color: #fff;
+`;
+
+export const UserMail = styled.p`
+  margin: 0;
 `;
 
 export const LogOutBtn = styled.button`
