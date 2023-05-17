@@ -1,11 +1,11 @@
-import { NotFoundText } from './NotFound.styled';
-// import notFoundImg from '../../img/not_found.jpeg';
+import { NotFoundText, NotFoundImg } from './NotFound.styled';
+import notFoundImg from '../../img/not_foung_img.jpeg';
 
 export const NotFound = () => {
   return (
     <>
       <NotFoundText>This page wasn't found</NotFoundText>
-      {/* <NotFoundImg src={notFoundImg} alt="" /> */}
+      <NotFoundImg src={notFoundImg} alt="" />
     </>
   );
 };

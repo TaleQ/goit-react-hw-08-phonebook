@@ -2,22 +2,31 @@ import styled from 'styled-components';
 import HomeBg from '../../img/home_bg.jpeg';
 
 export const HomeWrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   padding: 20px;
   background-image: url(${HomeBg});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
 export const HomeBox = styled.div`
+  margin-top: 20px;
+  margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
-  margin-left: 60px;
   text-align: justify;
-  font-size: 28px;
+  font-size: 16px;
   color: #fff;
-  width: 40%;
+  width: 80%;
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+    font-size: 28px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 100px;
+    margin-left: 60px;
+    width: 40%;
+  }
 `;
 
 export const HomeTitle = styled.h2`

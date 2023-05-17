@@ -24,11 +24,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const error = useSelector(authSelectors.selectError);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const { logInError } = useSelector(authSelectors.selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (error) {
+    if (isFormSubmitted && logInError) {
       Notify.failure(
         `Did not manage to log in. Check out your email and password`,
         {
@@ -36,7 +37,8 @@ const Login = () => {
         }
       );
     }
-  }, [error]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [logInError]);
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -53,6 +55,7 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(logIn({ email: email, password: password }));
+    setIsFormSubmitted(true);
   };
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -85,7 +88,7 @@ const Login = () => {
             sx={{
               my: 8,
               mx: 4,
-              pt: 20,
+              pt: 5,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

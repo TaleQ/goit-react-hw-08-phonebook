@@ -24,16 +24,18 @@ const theme = createTheme();
 const Register = () => {
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
-  const error = useSelector(authSelectors.selectError);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const { signUpError } = useSelector(authSelectors.selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (error) {
-      Notify.failure(`Did not manage to sign up. ${error}`, {
+    if (isFormSubmitted && signUpError) {
+      Notify.failure(`Did not manage to sign up. ${signUpError}`, {
         position: 'center-top',
       });
     }
-  }, [error]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signUpError]);
 
   const handleChange = e => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -42,6 +44,7 @@ const Register = () => {
     e.preventDefault();
     dispatch(signUp(newUser));
     setNewUser({ name: '', email: '', password: '' });
+    setIsFormSubmitted(true);
   };
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -65,8 +68,8 @@ const Register = () => {
               t.palette.mode === 'light'
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
-            backgroundSize: '100%',
-            backgroundPosition: 'top',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top left',
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -74,7 +77,7 @@ const Register = () => {
             sx={{
               my: 8,
               mx: 4,
-              pt: 20,
+              pt: 5,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

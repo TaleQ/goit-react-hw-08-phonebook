@@ -7,6 +7,9 @@ export const SliderBox = styled.div`
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+      font-size: 26px;
+    }
   }
   p {
     margin-bottom: 20px;

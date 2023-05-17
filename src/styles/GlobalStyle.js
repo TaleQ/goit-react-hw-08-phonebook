@@ -1,19 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+  html {
+    -moz-tab-size: 4;
+    tab-size: 4;
+  }
   body {
     margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-    -webkit-font-smoothing: antialiased
+    font-family: 'Roboto', 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #fff;
     color:  #06347d;
     max-width: 100%;
     overflow-x: hidden;
-    &.home-bg{
-      background-color: rgb(50 61 67);
-    }
+    background-color: rgb(50 61 67);
     &.contacts-bg{
       background-color: rgb(0 4 13);
     }

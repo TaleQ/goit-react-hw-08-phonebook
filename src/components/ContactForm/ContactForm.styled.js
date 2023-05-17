@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
 export const ContactFormWrapper = styled.div`
-  flex-basis: 50%;
-  padding: 0 23px;
+  flex-basis: 290px;
+  margin: 0 auto;
   text-align: center;
-`;
-
-export const StyledForm = styled.form`
-  width: 300px;
   @media screen and (min-width: 768px) {
     width: 400px;
   }
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+    flex-basis: 40%;
+  }
+`;
+
+export const StyledForm = styled.form`
+  width: 100%;
   margin: 0 auto;
   padding: 40px;
   display: flex;
