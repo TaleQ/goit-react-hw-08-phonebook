@@ -25,17 +25,16 @@ const Register = () => {
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const { signUpError } = useSelector(authSelectors.selectError);
+  const error = useSelector(authSelectors.selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isFormSubmitted && signUpError) {
-      Notify.failure(`Did not manage to sign up. ${signUpError}`, {
+    if (isFormSubmitted && error) {
+      Notify.failure(`Did not manage to sign up. ${error}`, {
         position: 'center-top',
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [signUpError]);
+  }, [error, isFormSubmitted]);
 
   const handleChange = e => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -54,7 +53,7 @@ const Register = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: 'calc(100vh - 120px)' }}>
         <CssBaseline />
         <Grid
           item

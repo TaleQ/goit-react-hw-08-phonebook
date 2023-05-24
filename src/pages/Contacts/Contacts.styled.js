@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import ContactsBg from '../../img/contacts_bg.jpeg';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   padding: 15px;
   background-color: rgb(0 4 13);
   background-image: url(${ContactsBg});
   background-size: cover;
+  background-position: bottom;
   background-repeat: no-repeat;
   color: rgb(17 59 126);
   font-size: 24px;

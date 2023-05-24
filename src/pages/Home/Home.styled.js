@@ -3,8 +3,9 @@ import HomeBg from '../../img/home_bg.jpeg';
 
 export const HomeWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 120px);
   padding: 20px;
+  background-color: rgb(50 61 67);
   background-image: url(${HomeBg});
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,11 +20,10 @@ export const HomeBox = styled.div`
   color: #fff;
   width: 80%;
   @media screen and (min-width: 768px) {
-    margin-top: 50px;
-    font-size: 28px;
+    font-size: 26px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 100px;
+    margin-top: 40px;
     margin-left: 60px;
     width: 40%;
   }
@@ -31,18 +31,17 @@ export const HomeBox = styled.div`
 
 export const HomeTitle = styled.h2`
   font-family: 'Caveat', cursive;
-  font-size: 48px;
+  font-size: 46px;
   text-align: center;
   margin-bottom: 20px;
 `;
 
 export const HomeText = styled.p`
-  margin-bottom: 20px;
-  margin-top: 15px;
+  margin-bottom: 10px;
 `;
 
 export const StartNowBtn = styled.button`
-  margin: 10px auto 0;
+  margin: 10px auto;
   display: block;
   width: 150px;
   padding: 5px;

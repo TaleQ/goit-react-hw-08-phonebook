@@ -25,11 +25,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const { logInError } = useSelector(authSelectors.selectError);
+  const error = useSelector(authSelectors.selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isFormSubmitted && logInError) {
+    if (isFormSubmitted && error) {
       Notify.failure(
         `Did not manage to log in. Check out your email and password`,
         {
@@ -37,8 +37,7 @@ const Login = () => {
         }
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [logInError]);
+  }, [error, isFormSubmitted]);
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -65,7 +64,7 @@ const Login = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: 'calc(100vh - 120px)' }}>
         <CssBaseline />
         <Grid
           item
@@ -80,7 +79,7 @@ const Login = () => {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: 'cover',
-            backgroundPosition: 'right',
+            backgroundPosition: 'top right',
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>

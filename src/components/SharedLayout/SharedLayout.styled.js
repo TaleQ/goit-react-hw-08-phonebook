@@ -4,6 +4,7 @@ export const Header = styled.header`
   top: 0;
   left: 0;
   width: 100vw;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,6 @@ export const Header = styled.header`
   box-shadow: 0px 7px 18px -1px rgb(89 179 252);
   z-index: 1000;
   @media screen and (min-width: 768px) {
-    height: 150px;
     padding: 10px 40px 5px 40px;
     font-size: 32px;
     flex-direction: row;

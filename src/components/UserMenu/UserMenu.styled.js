@@ -18,16 +18,13 @@ export const UserMail = styled.p`
 `;
 
 export const LogOutBtn = styled.button`
-  width: 100px;
+  width: 90px;
   padding: 2px;
   background-color: #fff;
   border: 1px solid transparent;
   color: #2160c4;
+  font-size: 16px;
   &:hover {
     box-shadow: 8px 8px 24px -7px rgba(28, 33, 141, 1);
-  }
-  @media screen and (min-width: 768px) {
-    width: 150px;
-    padding: 5px;
   }
 `;

@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
     color:  #06347d;
     max-width: 100%;
     overflow-x: hidden;
-    background-color: rgb(50 61 67);
     &.contacts-bg{
       background-color: rgb(0 4 13);
     }
